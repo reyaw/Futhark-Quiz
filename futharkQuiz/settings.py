@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import mimetypes
+import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -123,3 +124,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 mimetypes.add_type("text/css", ".css", True)
+
+django_heroku.settings(locals())
