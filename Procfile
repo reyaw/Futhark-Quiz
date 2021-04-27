@@ -1,0 +1,1 @@
+web: gunicorn futharkQuiz.wsgi --log-file -
