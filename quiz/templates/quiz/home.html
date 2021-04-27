@@ -1,0 +1,41 @@
+{% extends "quiz/base.html" %}
+original_names = ["Fehu", "Urus", "Thurisaz", "Ansuz", "Raido", "Kaunaz", "Gebo", "Wunjo", "Hagalaz", "Naudiz", "Isaz",
+         "Jera", "Eihwaz", "Pertho", "Algiz", "Sowulo", "Teiwaz", "Berkana", "Ehwaz", "Mannaz", "Laguz", "Inguz",
+         "Dagaz", "Othila"]
+original_means = ["Wealth", "Power", "Troll", "Mouth", "Road", "Torch", "Talent", "Joy", "Havoc", "Night", "Freeze",
+         "Harvest", "Strength", "Hidden", "Defence", "Sun", "Warrior", "Birth", "Wheel", "Human",
+         "Lagoon", "Living", "Dawn", "Estate"]
+original_letters = ["F", "U/V", "Th", "A", "R", "K/C", "G", "W", "H", "N", "I", "J", "Y", "P", "Z/X", "S", "T", "B", "E", "M",
+        "L", "Ing", "D", "O"]
+{% block content %}
+
+    <h1>Quiz Home</h1>
+    {% load static %}
+    <img src="{% static 'quiz/Fehu.png' %}" alt="Fehu" width="500" height="500" border="30">
+
+<!-- Mockup Question -->
+    <form action="/get_answer/">
+        <input type="radio" id="algiz" name="runename" value="algiz">
+        <label for="algiz">Algiz</label><br>
+        <input type="radio" id="urus" name="runename" value="urus">
+        <label for="urus">Urus</label><br>
+        <input type="radio" id="sowulo" name="runename" value="sowulo">
+        <label for="sowulo">Sowulo</label>
+        <h1></h1>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!--  Displays blog posts
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}-->
+{% endblock content %}
