@@ -2,6 +2,7 @@ from django.shortcuts import render
 from quiz.models import Rune, Runes
 from django.http import HttpResponse
 from .forms import QuestionForm
+from django.views.generic import TemplateView
 
 posts = [
     {
@@ -19,24 +20,18 @@ posts = [
 ]
 
 
-def home(request):
-    context = {
-        'posts': posts
-    }
-    algiz = Rune(0)
-    return render(request, 'quiz/home.html', context)
+class HomePageView(TemplateView):
+    # context = {
+    #     'posts': posts
+    # }
+    # algiz = Rune(0)
+    #  return render(request, 'quiz/home.html', context)
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = {'title': "Quiz Home"}
+
 
 
 def about(request):
     return render(request, 'quiz/about.html', {'title': 'About'})
-
-
-def get_answer(request):
-    if request.method == 'POST':
-        form = QuestionForm(request.POST)
-
-        if form.is_valid():
-            return "Correct"
-
-    else:
-        form = QuestionForm()
